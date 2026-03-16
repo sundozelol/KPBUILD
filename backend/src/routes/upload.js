@@ -35,7 +35,8 @@ router.post('/image', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'Файл не передан' });
 
   const port = process.env.PORT || 3001;
-  const fileUrl = `http://localhost:${port}/uploads/${req.file.filename}`;
+  const host = process.env.FRONTEND_URL || `http://localhost:${port}`;
+  const fileUrl = `${host}/uploads/${req.file.filename}`;
   res.json({ file_url: fileUrl, filename: req.file.filename });
 });
 
@@ -58,7 +59,8 @@ router.post('/from-url', async (req, res) => {
     fs.writeFileSync(filepath, Buffer.from(response.data));
 
     const port = process.env.PORT || 3001;
-    res.json({ file_url: `http://localhost:${port}/uploads/${filename}`, filename });
+    const host = process.env.FRONTEND_URL || `http://localhost:${port}`;
+    res.json({ file_url: `${host}/uploads/${filename}`, filename });
   } catch (err) {
     res.status(500).json({ error: 'Не удалось загрузить изображение: ' + err.message });
   }

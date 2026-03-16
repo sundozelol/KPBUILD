@@ -104,7 +104,7 @@ router.post('/import', async (req, res) => {
     const result = await importXmlFeed(url, {
       uploadImages: uploadImages !== false,
       uploadsDir: process.env.UPLOADS_DIR || './uploads',
-      serverUrl: `http://localhost:${process.env.PORT || 3001}`
+      serverUrl: process.env.FRONTEND_URL || `http://localhost:${process.env.PORT || 3001}`
     });
 
     // If feedId provided, update last_synced

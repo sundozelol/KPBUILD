@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require('uuid');
  *   - RSS-style feeds
  */
 async function importXmlFeed(url, options = {}) {
-  const { uploadImages = true, uploadsDir = './uploads', serverUrl = 'http://localhost:3001' } = options;
+  const { uploadImages = true, uploadsDir = './uploads', serverUrl = process.env.FRONTEND_URL || 'http://localhost:3001' } = options;
 
   // ── 1. Fetch XML ──────────────────────────────────────────────────────────────
   let xmlText;
