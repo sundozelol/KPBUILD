@@ -30,11 +30,6 @@ RUN apk add --no-cache \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# SSL cert for Timeweb MySQL
-RUN mkdir -p /root/.cloud-certs && \
-    wget -O /root/.cloud-certs/root.crt https://st.timeweb.com/cloud-static/ca.crt && \
-    chmod 0600 /root/.cloud-certs/root.crt
-
 WORKDIR /app
 
 # Install backend production dependencies

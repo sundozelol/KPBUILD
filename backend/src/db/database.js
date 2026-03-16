@@ -1,11 +1,4 @@
 const mysql = require('mysql2/promise');
-const fs = require('fs');
-const path = require('path');
-
-const sslCertPath = '/root/.cloud-certs/root.crt';
-const sslOptions = fs.existsSync(sslCertPath)
-  ? { ssl: { ca: fs.readFileSync(sslCertPath) } }
-  : {};
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -17,7 +10,6 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   timezone: 'Z',
   charset: 'utf8mb4',
-  ...sslOptions,
 });
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
