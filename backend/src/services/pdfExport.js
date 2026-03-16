@@ -39,7 +39,7 @@ async function generatePdf(html, styles = '', options = {}) {
 
     // Set HTML content and wait for all resources (images, fonts) to load
     await page.setContent(fullHtml, {
-      waitUntil: ['networkidle0', 'domcontentloaded'],
+      waitUntil: ['domcontentloaded'],
       timeout: 30000,
     });
 
