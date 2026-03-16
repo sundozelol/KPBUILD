@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(python -c \"import secrets; print\\(''JWT_SECRET='' + secrets.token_hex\\(32\\)\\)\")",
+      "Bash(node -e \"const c=require\\(''crypto''\\);console.log\\(''JWT_SECRET=''+c.randomBytes\\(32\\).toString\\(''hex''\\)\\)\")",
+      "Bash(npm install:*)",
+      "Bash(grep -rn \"jspdf\\\\|html2canvas\\\\|from ''@base44\\\\|from \"\"@base44\" \"c:/Users/triad/Desktop/kp-generator-main/kp-generator-main/src/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/api/health)",
+      "Bash(curl -s http://localhost:5174/)",
+      "Bash(curl -6 http://localhost:5173/)",
+      "Bash(curl http://[::1]:5173/)",
+      "Bash(timeout 15 npx vite build)",
+      "Bash(curl -s http://localhost:3001/api/auth/me)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(cmd /c \"taskkill /F /IM node.exe\")",
+      "Bash(powershell -Command \"Get-Process node | Stop-Process -Force\")",
+      "Bash(powershell -Command \"netstat -ano | findstr '':5173''\")",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(cmd /c \"taskkill /F /IM node.exe 2>&1\")",
+      "Bash(netstat -ano)",
+      "Bash(kill -9 25768)",
+      "Bash(cmd /c \"taskkill /PID 25768 /F\")",
+      "Bash(powershell -Command \"Stop-Process -Id 25768 -Force -ErrorAction SilentlyContinue; Write-Host ''done''\")",
+      "Bash(powershell -Command \"Stop-Process -Id 30520 -Force -ErrorAction SilentlyContinue; Write-Host ''killed''\")",
+      "Bash(powershell -Command \"Stop-Process -Id 18516 -Force -ErrorAction SilentlyContinue; Write-Host ''killed''\")",
+      "Bash(curl -s --max-time 60 -A \"Mozilla/5.0 \\(compatible; KPGenerator/1.0\\)\" \"https://samgrupp.ru/bitrix/catalog_export/export_yandex_tovary.xml\")"
+    ]
+  }
+}
