@@ -370,7 +370,18 @@ export default function ProductsTableBlock({ data, onChange, preview, theme = {}
             <button key={pt} onClick={() => onChange({
               ...data,
               priceType: pt,
-              items: (data.items || []).map(({ activePriceType, _customPrice, ...item }) => item),
+              items: (data.items || []).map(({ activePriceType, _customPrice, ...item }) => {
+                const live = getLiveProduct(item);
+                return {
+                  ...item,
+                  price:        item.price        ?? live?.price        ?? 0,
+                  price2:       item.price2        != null ? item.price2        : (live?.price2        ?? null),
+                  price3:       item.price3        != null ? item.price3        : (live?.price3        ?? null),
+                  price_label:  item.price_label  || live?.price_label  || 'Цена',
+                  price2_label: item.price2_label || live?.price2_label || 'Опт',
+                  price3_label: item.price3_label || live?.price3_label || 'Дилер',
+                };
+              }),
             })}
               className={`px-2 py-0.5 rounded text-xs border ${priceType === pt ? "bg-gray-900 text-white border-gray-900" : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"}`}
             >{pt}</button>
