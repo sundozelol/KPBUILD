@@ -21,7 +21,11 @@ RUN apk add --no-cache \
     ca-certificates \
     ttf-freefont \
     font-noto \
-    font-noto-extra
+    font-noto-extra \
+    vips-dev \
+    python3 \
+    make \
+    g++
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
